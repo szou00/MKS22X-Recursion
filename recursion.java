@@ -53,10 +53,13 @@ public class recursion{
     //a helper function
     public static ArrayList<Integer> makeAllSums(int n, int sum, ArrayList<Integer> ans) {
       if (n > 0) {
+        int sum1 = sum;
         ans.add(sum);
-        makeAllSums(n-1,sum,ans);
+        System.out.println("First sum:" + sum1);
         sum += n;
+        System.out.println("Second sum:" + sum);
         ans.add(sum);
+        makeAllSums(n-1,sum1,ans);
         return makeAllSums(n-1,sum,ans);
       }
       else {
