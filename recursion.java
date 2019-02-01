@@ -45,17 +45,22 @@ public class recursion{
     /*Returns an array list of all subset totals of the numbers 1 to n inclusive
     */
     public static ArrayList<Integer> makeAllSums(int n){
-      ArrayList<Integer> ans = new ArrayList<Integer>;
+      ArrayList<Integer> ans = new ArrayList<Integer>();
       int sum = 0;
       return makeAllSums(n,sum,ans);
     }
 
     //a helper function
-    public static ArrayList<Integer> makeAllSums(int n, int sum, ArryList<Integer> ans) {
+    public static ArrayList<Integer> makeAllSums(int n, int sum, ArrayList<Integer> ans) {
       if (n > 0) {
-        ans.add(n + n-1);
-        ans.add(n);
-        n -= 1;
+        ans.add(sum);
+        makeAllSums(n-1,sum,ans);
+        sum += n;
+        ans.add(sum);
+        return makeAllSums(n-1,sum,ans);
+      }
+      else {
+        return ans;
       }
     }
 
@@ -64,10 +69,11 @@ public class recursion{
       // System.out.println(sqrt(9,1));
       // System.out.println(sqrt(225,.001));
       // System.out.println(sqrt(2,.001));
-      System.out.println(fib(0));
-      System.out.println(fib(1));
-      System.out.println(fib(4));
-      System.out.println(fib(5));
+      // System.out.println(fib(0));
+      // System.out.println(fib(1));
+      // System.out.println(fib(4));
+      // System.out.println(fib(5));
+      System.out.println(makeAllSums(3));
     }
 
 }
