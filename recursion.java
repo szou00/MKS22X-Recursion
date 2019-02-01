@@ -47,12 +47,17 @@ public class recursion{
     public static ArrayList<Integer> makeAllSums(int n){
       ArrayList<Integer> ans = new ArrayList<Integer>;
       int sum = 0;
-      if (n > 0) {
-        return makeAllSums(n,sum,ans);
-      }
+      return makeAllSums(n,sum,ans);
     }
 
     //a helper function
+    public static ArrayList<Integer> makeAllSums(int n, int sum, ArryList<Integer> ans) {
+      if (n > 0) {
+        ans.add(n + n-1);
+        ans.add(n);
+        n -= 1;
+      }
+    }
 
     public static void main(String[] args) {
       // System.out.println(sqrt(4,10));
