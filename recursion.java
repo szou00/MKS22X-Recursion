@@ -28,17 +28,18 @@ public class recursion{
      *precondition: n is non-negative
      */
     public static int fib(int n){
-      return fib(0,0,0,n);
+      return fib(0,1,0,n);
     }
 
     public static int fib(int first, int second, int current, int n) {
-      int ans = 0;
       if (current < n) {
+        int temp = first;
         first = second;
-        second = ans;
-        ans = first + second;
+        second = temp + second;
+        current += 1;
+        return fib(first,second,current,n);
       }
-      return ans;
+      return first;
     }
 
     /*As Per classwork*/
@@ -47,10 +48,13 @@ public class recursion{
     // }
 
     public static void main(String[] args) {
-      System.out.println(sqrt(4,10));
-      System.out.println(sqrt(9,1));
-      System.out.println(sqrt(225,.001));
-      System.out.println(sqrt(2,.001));
+      // System.out.println(sqrt(4,10));
+      // System.out.println(sqrt(9,1));
+      // System.out.println(sqrt(225,.001));
+      // System.out.println(sqrt(2,.001));
+      System.out.println(fib(0));
+      System.out.println(fib(1));
+      System.out.println(fib(4));
     }
 
 }
