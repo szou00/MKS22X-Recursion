@@ -24,11 +24,21 @@ public class recursion{
     }
 
     /*Recursively find the n'th fibbonaci number in linear time
-     *fib(0) = 1; fib(1) = 1; fib(5) = 5
+     *fib(0) = 0; fib(1) = 1; fib(5) = 5
      *precondition: n is non-negative
      */
     public static int fib(int n){
-      return 0;
+      return fib(0,0,0,n);
+    }
+
+    public static int fib(int first, int second, int current, int n) {
+      int ans = 0;
+      if (current < n) {
+        first = second;
+        second = ans;
+        ans = first + second;
+      }
+      return ans;
     }
 
     /*As Per classwork*/
