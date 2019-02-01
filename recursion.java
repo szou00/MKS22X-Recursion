@@ -42,10 +42,17 @@ public class recursion{
       return first;
     }
 
-    /*As Per classwork*/
-    // public static ArrayList<Integer> makeAllSums(){
-    //
-    // }
+    /*Returns an array list of all subset totals of the numbers 1 to n inclusive
+    */
+    public static ArrayList<Integer> makeAllSums(int n){
+      ArrayList<Integer> ans = new ArrayList<Integer>;
+      int sum = 0;
+      if (n > 0) {
+        return makeAllSums(n,sum,ans);
+      }
+    }
+
+    //a helper function
 
     public static void main(String[] args) {
       // System.out.println(sqrt(4,10));
@@ -55,6 +62,7 @@ public class recursion{
       System.out.println(fib(0));
       System.out.println(fib(1));
       System.out.println(fib(4));
+      System.out.println(fib(5));
     }
 
 }
