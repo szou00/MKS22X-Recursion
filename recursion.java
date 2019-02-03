@@ -46,24 +46,21 @@ public class recursion{
     */
     public static ArrayList<Integer> makeAllSums(int n){
       ArrayList<Integer> ans = new ArrayList<Integer>();
-      int sum = 0;
-      return makeAllSums(n,sum,ans);
+      makeAllSums(n,0,ans);
+      return ans;
     }
 
     //a helper function
-    public static ArrayList<Integer> makeAllSums(int n, int sum, ArrayList<Integer> ans) {
+    public static void makeAllSums(int n, int sum, ArrayList<Integer> ans) {
       if (n > 0) {
-        int sum1 = sum;
-        ans.add(sum);
-        System.out.println("First sum:" + sum1);
+        makeAllSums(n-1,sum,ans);
+        System.out.println("n: " + n + " First sum: " + sum + " ans: " + ans);
         sum += n;
-        System.out.println("Second sum:" + sum);
-        ans.add(sum);
-        makeAllSums(n-1,sum1,ans);
-        return makeAllSums(n-1,sum,ans);
+        makeAllSums(n-1,sum,ans);
+        System.out.println("n: " + n + " Second sum: " + sum + " ans: " + ans);
       }
       else {
-        return ans;
+        ans.add(sum);
       }
     }
 
@@ -77,6 +74,8 @@ public class recursion{
       // System.out.println(fib(4));
       // System.out.println(fib(5));
       System.out.println(makeAllSums(3));
+      System.out.println(makeAllSums(5));
+      System.out.println(makeAllSums(12));
     }
 
 }
