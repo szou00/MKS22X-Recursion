@@ -54,10 +54,10 @@ public class recursion{
     public static void makeAllSums(int n, int sum, ArrayList<Integer> ans) {
       if (n > 0) {
         makeAllSums(n-1,sum,ans);
-        System.out.println("n: " + n + " First sum: " + sum + " ans: " + ans);
+        // System.out.println("n: " + n + " First sum: " + sum + " ans: " + ans);
         sum += n;
         makeAllSums(n-1,sum,ans);
-        System.out.println("n: " + n + " Second sum: " + sum + " ans: " + ans);
+        // System.out.println("n: " + n + " Second sum: " + sum + " ans: " + ans);
       }
       else {
         ans.add(sum);
@@ -74,8 +74,9 @@ public class recursion{
       // System.out.println(fib(4));
       // System.out.println(fib(5));
       System.out.println(makeAllSums(3));
+      System.out.println(makeAllSums(4));
       System.out.println(makeAllSums(5));
-      System.out.println(makeAllSums(12));
+      // System.out.println(makeAllSums(12));
     }
 
 }
