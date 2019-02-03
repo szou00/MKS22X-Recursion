@@ -9,17 +9,18 @@ public class recursion{
 
     */
     public static double sqrt(double n, double tolerance){
-      double guess = n/2;
-      return sqrt(n,tolerance,guess);
+      double guess = n/2; //guess is half of the number
+      return sqrt(n,tolerance,guess); //calls the helper function
     }
 
+    //helper function that keeps track of the guess
     public static double sqrt(double n, double tolerance, double guess) {
-      if (java.lang.Math.abs((guess * guess - n) / n) < (tolerance / 100)) {
-        return guess;
+      if (java.lang.Math.abs((guess * guess - n) / n) <= (tolerance / 100)) { //if the percent error is less than or equal to what was desired
+        return guess; //return guess
       }
-      else {
-        guess = (n/guess + guess)/2;
-        return sqrt(n, tolerance, guess);
+      else { //if it is more
+        guess = (n/guess + guess)/2; //a new guess is created
+        return sqrt(n, tolerance, guess); //the function is called again
       }
     }
 
@@ -28,18 +29,19 @@ public class recursion{
      *precondition: n is non-negative
      */
     public static int fib(int n){
-      return fib(0,1,0,n);
+      return fib(0,1,0,n); //first int is 0, second is 1, current is the 0th term
     }
 
+    //helper function
     public static int fib(int first, int second, int current, int n) {
-      if (current < n) {
-        int temp = first;
-        first = second;
-        second = temp + second;
-        current += 1;
-        return fib(first,second,current,n);
+      if (current < n) { //if the current term is less than the desired term
+        int temp = first; //a temporary variable is created to store the value of the first term
+        first = second; //first gets the value of the second term
+        second = temp + second; //second gets the value of the first+second term
+        current += 1; //current increases by 1
+        return fib(first,second,current,n); //the function is called again
       }
-      return first;
+      return first; //base case
     }
 
     /*Returns an array list of all subset totals of the numbers 1 to n inclusive
