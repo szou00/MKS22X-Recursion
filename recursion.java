@@ -45,25 +45,24 @@ public class recursion{
     /*Returns an array list of all subset totals of the numbers 1 to n inclusive
     */
     public static ArrayList<Integer> makeAllSums(int n){
-      ArrayList<Integer> ans = new ArrayList<Integer>();
-      makeAllSums(n,0,ans);
-      return ans;
+      ArrayList<Integer> ans = new ArrayList<Integer>(); //creates a new array
+      makeAllSums(n,0,ans); //calls the helper function to modify the array
+      return ans; //returns the array
     }
 
     //a helper function
     public static void makeAllSums(int n, int sum, ArrayList<Integer> ans) {
       if (n > 0) {
-        makeAllSums(n-1,sum,ans);
-        // System.out.println("n: " + n + " First sum: " + sum + " ans: " + ans);
-        sum += n;
-        makeAllSums(n-1,sum,ans);
-        // System.out.println("n: " + n + " Second sum: " + sum + " ans: " + ans);
+        makeAllSums(n-1,sum,ans); //calls the function again on the sum without adding anything
+        sum += n; //increases sum
+        makeAllSums(n-1,sum,ans); //calls the function after adding the number to the sum
       }
       else {
-        ans.add(sum);
+        ans.add(sum); //when n reaches 0, the sum is added to the array
       }
     }
 
+    //testing
     public static void main(String[] args) {
       // System.out.println(sqrt(4,10));
       // System.out.println(sqrt(9,1));
