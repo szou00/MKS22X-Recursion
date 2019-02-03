@@ -54,12 +54,17 @@ public class recursion{
 
     //a helper function
     public static void makeAllSums(int n, int sum, ArrayList<Integer> ans) {
-      if (n > 0) {
+      if (n > 0) { //if n is positive
         makeAllSums(n-1,sum,ans); //calls the function again on the sum without adding anything
         sum += n; //increases sum
         makeAllSums(n-1,sum,ans); //calls the function after adding the number to the sum
       }
-      else {
+      if (n < 0) { //if n is negative
+        makeAllSums(n+1,sum,ans); //calls the function again on the sum without adding anything
+        sum += n; //increases sum
+        makeAllSums(n+1,sum,ans); //calls the function after adding the number to the sum
+      }
+      if (n == 0) {
         ans.add(sum); //when n reaches 0, the sum is added to the array
       }
     }
@@ -74,9 +79,9 @@ public class recursion{
       // System.out.println(fib(1));
       // System.out.println(fib(4));
       // System.out.println(fib(5));
+      System.out.println(makeAllSums(0));
       System.out.println(makeAllSums(3));
-      System.out.println(makeAllSums(4));
-      System.out.println(makeAllSums(5));
+      System.out.println(makeAllSums(-3));
       // System.out.println(makeAllSums(12));
     }
 
