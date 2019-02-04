@@ -15,12 +15,12 @@ public class recursion{
 
     //helper function that keeps track of the guess
     public static double sqrt(double n, double tolerance, double guess) {
-      if (java.lang.Math.abs((guess * guess - n) / n) <= (tolerance / 100)) { //if the percent error is less than or equal to what was desired
-        return guess; //return guess
-      }
-      else { //if it is more
+      if (java.lang.Math.abs((guess * guess - n) / n) > (tolerance / 100)) { //if the percent error is greater than what was desired
         guess = (n/guess + guess)/2; //a new guess is created
         return sqrt(n, tolerance, guess); //the function is called again
+      }
+      else { //if it is not
+        return guess; //return guess
       }
     }
 
@@ -71,18 +71,64 @@ public class recursion{
 
     //testing
     public static void main(String[] args) {
-      // System.out.println(sqrt(4,10));
-      // System.out.println(sqrt(9,1));
-      // System.out.println(sqrt(225,.001));
-      // System.out.println(sqrt(2,.001));
-      // System.out.println(fib(0));
-      // System.out.println(fib(1));
-      // System.out.println(fib(4));
-      // System.out.println(fib(5));
-      System.out.println(makeAllSums(0));
-      System.out.println(makeAllSums(3));
-      System.out.println(makeAllSums(-3));
-      // System.out.println(makeAllSums(12));
-    }
+        System.out.println("sqrt()");
+        System.out.println("-----------------------\n");
+
+        System.out.println("sqrt(4, 0.00001)");
+        System.out.println("EXPECTED: 2");
+        System.out.println(sqrt(4, 0.00001));         // 2
+
+        System.out.println("----");
+
+        System.out.println("sqrt(8, 0.00001)");
+        System.out.println("EXPECTED: ~2.8284");
+        System.out.println(sqrt(8, 0.00001));         // ~2.8284
+
+        System.out.println("----");
+
+        System.out.println("sqrt(0, 0.00001)");
+        System.out.println("EXPECTED: 0");
+        System.out.println(sqrt(0, 0.00001));         // 0
+
+        System.out.println("\n");
+
+        System.out.println("fib()");
+        System.out.println("-----------------------\n");
+
+        System.out.println("fib(0)");
+        System.out.println("EXPECTED: 0");
+        System.out.println(fib(0));                   // 0
+
+        System.out.println("----");
+
+        System.out.println("fib(1)");
+        System.out.println("EXPECTED: 1");
+        System.out.println(fib(1));                   // 1
+
+        System.out.println("----");
+
+        System.out.println("fib(7)");
+        System.out.println("EXPECTED: 13");
+        System.out.println(fib(7));                   // 13
+
+        System.out.println("makeAllSums()");
+        System.out.println("-----------------------\n");
+
+        System.out.println("makeAllSums(0)");
+        System.out.println("EXPECTED: [0]");
+        System.out.println(makeAllSums(0));           // [0]
+
+        System.out.println("----");
+
+        System.out.println("makeAllSums(1)");
+        System.out.println("EXPECTED: [1, 0]");
+        System.out.println(makeAllSums(1));           // [1, 0]
+
+        System.out.println("----");
+
+        System.out.println("makeAllSums(3)");
+        System.out.println("EXPECTED: [0, 3, 2, 5, 1, 4, 3, 6]");
+        System.out.println(makeAllSums(3));           // [0, 3, 2, 5, 1, 4, 3, 6]
+      }
 
 }
