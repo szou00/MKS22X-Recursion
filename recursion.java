@@ -24,6 +24,13 @@ public class recursion{
       }
     }
 
+    public static boolean closeEnough(double a, double b){
+    if(a==0.0 && b==0.0)return true;
+    if(a==0.0)return b < 0.00000000001;
+    if(b==0.0)return a < 0.00000000001;
+    return Math.abs(a-b)/a < 0.0001;//This is the normal % difference allowed
+  }
+
     /*Recursively find the n'th fibbonaci number in linear time
      *fib(0) = 0; fib(1) = 1; fib(5) = 5
      *precondition: n is non-negative
